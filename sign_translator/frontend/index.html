@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Language Translator Demo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1>Sign Language Translator Demo</h1>
+  <p class="disclaimer">Demo only – not an accurate ASL/ISL translation. Words mapped to stylized hand poses for illustration.</p>
+</header>
+<main class="layout">
+  <section class="media-panel">
+    <div class="upload-row">
+      <input type="file" id="fileInput" accept="video/*,audio/*" />
+      <button id="uploadBtn">Transcribe</button>
+    </div>
+    <video id="videoPlayer" controls class="hidden"></video>
+    <audio id="audioPlayer" controls class="hidden"></audio>
+    <div id="status" class="status">Select a file to begin.</div>
+    <div id="captions" class="captions" aria-live="polite"></div>
+  </section>
+  <section class="mascot-panel">
+    <h2>Mascot</h2>
+    <div id="mascotContainer">
+      <!-- SVG Mascot Hand -->
+      <svg id="handMascot" viewBox="0 0 200 200" width="220" height="220" xmlns="http://www.w3.org/2000/svg" aria-label="Hand mascot">
+        <defs>
+          <style>
+            .part { transition: transform 0.3s ease, fill 0.3s ease; }
+            .highlight { fill: #ffcc4d; }
+          </style>
+        </defs>
+        <!-- Palm -->
+        <rect id="palm" class="part" x="70" y="80" width="60" height="70" rx="15" fill="#f2b885" stroke="#a56a43" stroke-width="3" />
+        <!-- Fingers -->
+        <rect id="finger1" class="part finger" x="70" y="40" width="12" height="45" rx="8" fill="#f2b885" stroke="#a56a43" stroke-width="3" />
+        <rect id="finger2" class="part finger" x="86" y="35" width="12" height="50" rx="8" fill="#f2b885" stroke="#a56a43" stroke-width="3" />
+        <rect id="finger3" class="part finger" x="102" y="35" width="12" height="50" rx="8" fill="#f2b885" stroke="#a56a43" stroke-width="3" />
+        <rect id="finger4" class="part finger" x="118" y="40" width="12" height="45" rx="8" fill="#f2b885" stroke="#a56a43" stroke-width="3" />
+        <!-- Thumb -->
+        <rect id="thumb" class="part" x="55" y="100" width="25" height="15" rx="8" fill="#f2b885" stroke="#a56a43" stroke-width="3" transform="rotate(-35 55 100)" />
+      </svg>
+      <div id="currentWord" class="current-word">Word: <span id="wordSpan">-</span></div>
+    </div>
+  </section>
+</main>
+<footer>
+  <small>Prototype – replace stub transcription & gesture mapping with production services for real use.</small>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
